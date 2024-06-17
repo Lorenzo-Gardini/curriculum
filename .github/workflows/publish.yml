@@ -10,20 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    
+      - name: Compile LaTeX document
+        uses: xu-cheng/texlive-action@v2
+          with:
+            scheme: full
+        run: |
+          latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
 
-    - name: Compile LaTeX document
-      uses: xu-cheng/texlive-action@v2
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4  # Update to version 4 (recommended)
         with:
-          scheme: full
-      run: |
-        latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
-
-    - name: Upload PDF
-      uses: actions/upload-artifact@v3
-      with:
-        name: CV - Lorenzo Gardini
-        path: "CV - Lorenzo Gardini.pdf"
+          name: cv-lorenzo-gardini  # Use a lowercase and hyphenated name
+          path: "*.pdf"                # Upload any generated PDF
