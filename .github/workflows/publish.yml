@@ -13,15 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Install TeXLive
-      run: sudo apt-get install -y texlive-full
+    
 
     - name: Compile LaTeX document
+      uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
       run: |
         latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
 
     - name: Upload PDF
       uses: actions/upload-artifact@v3
       with:
-        name: cv-lorenzo-gardini-pdf
-        path: cv-lorenzo-gardini.pdf
+        name: CV - Lorenzo Gardini
+        path: "CV - Lorenzo Gardini.pdf"
