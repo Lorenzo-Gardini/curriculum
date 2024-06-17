@@ -18,12 +18,13 @@ jobs:
           scheme: full
           run: |
             latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
-
+      - name: Move to folder
+        run: mkdir output && mv "CV - Lorenzo Gardini.pdf" output/
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cv_lorenzo_gardini
-          path: "*.pdf"
+          name: output
+          path: output
 
   release:
     needs:
@@ -36,8 +37,8 @@ jobs:
       - name: Download PDF Artifact
         uses: actions/download-artifact@v3
         with:
-          name: cv_lorenzo_gardini 
-          path: cv_lorenzo_gardini
+          name: output 
+          path: output
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
