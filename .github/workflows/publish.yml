@@ -13,10 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Compile LaTeX document
+      - name: Set up TeX Live
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
+
+      - name: Compile LaTeX document
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
 
