@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up TeX Live
+      - name: Create PDF
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
@@ -25,7 +25,9 @@ jobs:
           name: cv_lorenzo_gardini
           path: "*.pdf"
 
-  deploy:
+  release:
+    needs:
+        - build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
