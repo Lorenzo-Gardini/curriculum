@@ -1,0 +1,35 @@
+name: Build LaTeX document
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up LaTeX environment
+      uses: dante-ev/latex-action@v2
+      with:
+        packages: |
+          texlive-latex-base
+          texlive-latex-recommended
+          texlive-latex-extra
+          texlive-fonts-recommended
+          texlive-fonts-extra
+          texlive-bibtex-extra
+
+    - name: Compile LaTeX document
+      run: |
+        latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
+
+    - name: Upload PDF
+      uses: actions/upload-artifact@v3
+      with:
+        name: cv-lorenzo-gardini-pdf
+        path: cv-lorenzo-gardini.pdf

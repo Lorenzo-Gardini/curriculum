@@ -1,0 +1,238 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[10pt, a4paper, ragged2e]{altacv}
+
+\geometry{
+  left = 1cm,
+  right = 9cm,
+  marginparwidth = 6.8cm,
+  marginparsep = 1.2cm,
+  top = 1.25cm,
+  bottom = 1.25cm
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage[hidelinks, breaklinks]{hyperref}
+\usepackage{changepage}
+\usepackage{microtype}
+
+\renewenvironment{cvcolumn}[1]{\begin{minipage}[t]{#1}}{\end{minipage}}
+
+
+\newcommand{\position}[2]{%
+  {\color{emphasis}%
+    {\large{#1}}\hfill{\raisebox{1pt}{\small{#2}}}\par%
+  }%
+}
+\newcommand{\institution}[1]{\smallskip{\bfseries\color{accent}#1\par}}
+\newcommand{\duration}[1]{%
+  \smallskip{\small\makebox[0.5\linewidth][l]{\faCalendar\hspace{0.5em}#1}}%
+}
+\newcommand{\institutionShort}[1]{\smallskip{\bfseries\color{accent}#1}}
+\newcommand{\durationShort}[1]{%
+  \hfill{\small\faCalendar\hspace{0.5em}#1\par\medskip}%
+}
+
+\newcommand{\location}[2][]{%
+  \ifstrequal{#2}{}{}{%
+    {\small\makebox[0.5\linewidth][r]{%
+      \ifstrequal{#1}{remote}{\faLaptop}{\faMapMarker}%
+      \hspace{0.5em}#2%
+    }}%
+  }{\small\par\medskip}%
+}
+
+\newcommand{\fhref}[2]{\href{#1://#2}{#2}}
+
+\renewcommand{\divider}[1][]{%
+  \ifstrequal{#1}{empty}{\vspace{-4pt}}{}%
+  \par\vspace{-.333ex}%
+  \textcolor{body!37.5}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip%
+}
+
+
+\renewcommand{\cvachievement}[3]{%
+  \begin{tabularx}{\linewidth}{@{}p{2em} @{\hspace{1ex}} >{\arraybackslash}X@{}}
+    \multirow{2}{*}{\Large\color{accent}#1} & \bfseries\textcolor{emphasis}{#2}\\
+    & #3
+  \end{tabularx}%
+  \vspace{6pt}%
+}
+
+\renewcommand{\cvevent}[6][]{%
+  {\large\color{emphasis}#2\hfill\small{#3}\par}
+  \smallskip\normalsize
+  \textbf{\color{accent}#4}\par
+  \smallskip\small
+  \makebox[0.5\linewidth][l]{\faCalendar\hspace{0.5em}#5}%
+  \makebox[0.5\linewidth][r]{%
+    \ifstrequal{#1}{remote}{\faLaptop}{\faMapMarker}%
+    \hspace{0.5em}#6%
+  }\par
+  \medskip\normalsize
+}
+
+%% DEFINE COLORS
+
+\definecolor{HeadingColor}{HTML}{258EA6}
+\definecolor{AccentColor}{HTML}{57467B}
+\definecolor{EmphasisColor}{HTML}{333333}
+\definecolor{BodyColor}{HTML}{333333} 
+\colorlet{heading}{HeadingColor}
+\colorlet{accent}{AccentColor}
+\colorlet{emphasis}{EmphasisColor}
+\colorlet{body}{BodyColor}
+
+\hypersetup{
+  pdftitle = {CV - Lorenzo Gardini},
+  pdfauthor = {Lorenzo Gardini},
+  pdfsubject = {Curriculum Vitae},
+  pdfkeywords = {Curriculum Vitae, Curriculum, Resume, Portfolio, Lorenzo, Lorenzo Gardini}
+}
+
+
+\newcommand{\grade}[1]{%
+  \begin{tikzpicture}
+    \clip (1em-.4em,-.35em) rectangle (5em +.5em ,1em);
+    \foreach \x in {1,2,...,5}{
+        \path[{fill=body!30}] (\x em,0) circle (.35em); % backColor
+    }
+    \begin{scope}
+    \clip (1em-.4em,-.35em) rectangle (#1em +.5em ,1em);
+    \foreach \x in {1,2,...,5}{
+        \path[{fill=accent}] (\x em,0) circle (.35em); % frontColor
+    }
+    \end{scope}
+  \end{tikzpicture}%
+}
+
+\renewcommand{\cvskill}[2]{%
+  \vspace{-4pt}%
+  \textcolor{emphasis}{\textbf{#1}}\hfill%
+  \grade{#2}\par%
+}
+
+\renewcommand{\cvsection}[3][]{%
+  \bigskip%
+  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\input{#1}}}%
+  {\color{heading}\LARGE\bfseries\MakeUppercase{#2}\hfill\Large{#3}}\\[-1ex]%
+  {\color{heading}\rule{\linewidth}{2pt}\par}\medskip
+}
+
+\renewcommand{\cveventshort}[4]{%
+  {\large\color{emphasis}#1\hfill\small{#2}\par}
+  \smallskip\normalsize
+  \textbf{\color{accent}#3}\hfill\small\faCalendar\hspace{0.5em}#4\par
+  \smallskip
+  \normalsize
+}
+
+%% HEADER
+
+\begin{document}
+
+\name{Lorenzo Gardini}
+\tagline{Data Scientist\vspace{.05cm}}
+\photo{2.75cm}{img/kuzco}
+\personalinfo{
+  \email{\href{mailto:l.gardo98@gmail.com}{\hspace{.025cm}l.gardo98@gmail.com}}
+  \phone{\href{tel:+393318741357}{+39 331 87 41 357 \hspace{.65mm}}}
+  \printinfo{\faGithub}{\href{https://github.com/Lorenzo-Gardini}
+    {Lorenzo-Gardini}}
+  \printinfo{\faLinkedin}{\href{https://www.linkedin.com/in/lorenzo-gardini/}
+    {\hspace{.12mm}lorenzo-gardini}}
+  \home{\href{https://it.wikipedia.org/wiki/Forlì}{\hspace{.75mm}Forlì, Italy}\hspace{5.85mm}}
+}
+
+\begin{fullwidth}
+  \makecvheader{}
+\end{fullwidth}
+
+% EXPERIENCE
+\cvsection[CV - Lorenzo Gardini - sidebar]{Working Experience}{\faBriefcase}
+
+\position{Consultant as Cloud Engineer}{}
+\institution{\href{https://www.reply.com/data-reply/en/}{Data Reply}}%
+\duration{December 2022 -- Now}%
+\location[remote]{Full Remote}%
+I design, implement, and manage cloud infrastructures, ensuring their optimization, efficiency, and scalability, and I interface with clients.%
+\divider{}
+
+
+\position{Internship as Data Scientist}{}
+\institution{\href{https://www.reply.com/data-reply/en/}{Data Reply}}%
+\duration{April 2022 -- December 2022}%
+\location[remote]{Full Remote}%
+I was involved in developing a recommendation framework and data manipulation.
+\divider{}
+
+\position{Web and App Developer}{}
+\institution{Freelance}%
+\duration{2021}%
+\location[remote]{Full Remote}%
+I worked for private clients developing websites and mobile apps.
+
+% EDUCATION
+
+\medskip
+\cvsection{Education}{\faGraduationCap}
+
+\position{Master Degree}{Current}
+\institution{%
+  \href{https://corsi.unibo.it/magistrale/IngegneriaScienzeInformatiche}{Alma Mater Studiorum -- Ingegneria e Scienze Informatiche}%
+}%
+\duration{2020 -- Now}%
+\location{Cesena, Italy}%
+\divider{}
+
+\position{%
+  \href{https://recomprehension.com}{Bachelor Degree}}{109/110}%
+\institution{%
+  \href{https://corsi.unibo.it/laurea/IngegneriaScienzeInformatiche}{Alma Mater Studiorum -- Ingegneria e Scienze Informatiche}%
+}%
+\duration{2017 - 2020}%
+\location{Cesena, Italy}%
+Thesis title: "Studio e Sperimentazione di Algoritmi di Reinforcement Learning Applicati a Video Game"
+
+\medskip
+%\clearpage
+
+
+\cvsection{Recent Projects}{\faBook}
+
+\position{
+  \href{https://github.com/Lorenzo-Gardini/PTPS?tab=readme-ov-file}
+  {Pandas DataFrame preprocess library}
+  }{}%
+Preprocess library for data cleaning and manipulation. \href{https://scikit-learn.org/stable/}{Scikit-Learn} compatible
+\divider[empty]{}
+
+\position{%
+  \href{https://github.com/Lorenzo-Gardini/Computer-vision}%
+  {Distributed UNO game clone in Scala}%
+}{}
+Implemented with actor framework \href{https://akka.io/}{Akka}
+\divider[empty]{}
+
+\position{%
+  \href{https://github.com/Lorenzo-Gardini/TextMining}%
+  {NLP For 3-Class Sentiment Analysis}%
+}{}
+Full text analysis for 3 class labeled reviews starting from classic approaches to Transformers models.
+\divider[empty]{}
+
+\position{%
+  \href{https://github.com/Lorenzo-Gardini/Computer-vision}%
+  {Computer vision applied to italian TV show "Avanti un altro"}%
+}{}
+Classic image features extraction, based on Keypoints, and \href{https://en.wikipedia.org/wiki/Siamese_neural_network}{Siamese NN} for the italian TV show \href{https://it.wikipedia.org/wiki/Avanti_un_altro!#Gioco_finale}{"Avanti un altro"} 
+\divider[empty]{}
+
+\position{%
+  \href{https://github.com/Lorenzo-Gardini/Computer-vision}%
+  {Reinforcement learning tecniques for game Pong}%
+}{}
+DQN, DDQN, PPO and A2C applied to Atari game \href{https://en.wikipedia.org/wiki/Pong}{Pong}
+
+\end{document}
