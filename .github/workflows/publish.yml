@@ -19,7 +19,7 @@ jobs:
           run: |
             latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini_minimal.tex"
       - name: Move to folder
-        run: mkdir output && mv "CV - Lorenzo Gardini.pdf" output/
+        run: mkdir output && mv "CV - Lorenzo Gardini_minimal.pdf" output/
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
