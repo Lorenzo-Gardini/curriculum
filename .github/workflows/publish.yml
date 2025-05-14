@@ -17,7 +17,7 @@ jobs:
         with:
           scheme: full
           run: |
-            latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini.tex"
+            latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini_minimal.tex"
       - name: Move to folder
         run: mkdir output && mv "CV - Lorenzo Gardini.pdf" output/
       - name: Upload PDF artifact
