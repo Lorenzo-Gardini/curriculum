@@ -9,18 +9,39 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Create PDF
         uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
           run: |
-            latexmk -pdf -interaction=nonstopmode -halt-on-error "CV.tex"
-            latexmk -pdf -interaction=nonstopmode -halt-on-error "cover_letter.tex"
-      - name: Move to folder
-        run: mkdir output && mv "CV - Lorenzo Gardini.pdf" output/ && mv "Lorenzo Gardini cover letter.pdf" output/
+            latexmk -pdf \
+              -jobname=CV \
+              -interaction=nonstopmode \
+              -halt-on-error \
+              CV.tex
+
+            latexmk -pdf \
+              -jobname=cover_letter \
+              -interaction=nonstopmode \
+              -halt-on-error \
+              cover_letter.tex
+
+      - name: Check generated files
+        run: |
+          ls -lah
+
+      - name: Rename and move PDFs
+        run: |
+          mkdir -p output
+
+          mv CV.pdf output/CV_Lorenzo_Gardini.pdf
+          mv cover_letter.pdf output/Lorenzo_Gardini_Cover_Letter.pdf
+
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
