@@ -17,10 +17,10 @@ jobs:
         with:
           scheme: full
           run: |
-            latexmk -pdf -interaction=nonstopmode -halt-on-error "CV - Lorenzo Gardini_minimal.tex"
-            latexmk -pdf -interaction=nonstopmode -halt-on-error "Cover_letter.tex"
+            latexmk -pdf -interaction=nonstopmode -halt-on-error "CV.tex"
+            latexmk -pdf -interaction=nonstopmode -halt-on-error "cover_letter.tex"
       - name: Move to folder
-        run: mkdir output && mv "CV - Lorenzo Gardini_minimal.pdf" output/ && mv "Cover_letter.pdf" output/
+        run: mkdir output && mv "CV - Lorenzo Gardini.pdf" output/ && mv "Lorenzo Gardini cover letter.pdf" output/
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:

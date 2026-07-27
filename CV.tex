@@ -100,7 +100,7 @@
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%  RESUME STARTS HERE  %%%%%%
 
 
 \begin{document}
@@ -119,7 +119,7 @@
 \section{Summary}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     AI Engineer with 3+ years of professional experience in cloud engineering, data engineering, and data science. Proven track record in designing and deploying scalable AWS cloud infrastructures with Terraform, building high-performance Spark ETL pipelines processing billions of rows, and developing end-to-end document extraction microservices. Experienced in leading small teams, mentoring engineers, and delivering production-grade solutions in the insurance and banking domains using Agile methodologies.
+     AI Engineer with over 3 years of professional experience in cloud engineering and data engineering. Experienced in designing and developing AI agent infrastructures based on LangGraph, building scalable AWS cloud microservices with Terraform, and developing high-performance Spark ETL pipelines. Experienced in leading small teams, mentoring engineers, and delivering production-ready solutions in the insurance and banking industries, while working with Agile methodologies.
     }}
  \end{itemize}
 
@@ -128,11 +128,11 @@
 \section{Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Java, Python, C/C++, SQL, JavaScript, Scala} \\
-     \textbf{Frameworks}{: Apache Spark, PyTorch, Keras, TensorFlow} \\
-     \textbf{Cloud \& Infrastructure}{: AWS (S3, Lambda, ECS, Step Functions, API Gateway, CloudWatch, IAM), Azure, GCP, Terraform, Docker} \\
-     \textbf{DevOps \& Tools}{: CI/CD (GitLab, GitHub Actions), Git, Agile, Scrum} \\
-     \textbf{Data Science \& ML}{: Pandas, NumPy, HuggingFace, Delta Lake}
+     \textbf{Languages}{: Java, Python, C, SQL, Scala} \\
+     \textbf{Frameworks}{: Spark, Keras, LangGraph} \\
+     \textbf{Cloud \& Infrastructure}{: AWS, Terraform, Docker} \\
+     \textbf{DevOps \& Tools}{: CI/CD, Git, Agile, Scrum} \\
+     \textbf{Data Science \& ML}{: Pandas, scikit-learn, HuggingFace, Delta Lake}
     }}
  \end{itemize}
 
@@ -143,20 +143,19 @@
 
     \resumeSubheading
       {Prometeia}{November 2025 -- Present, Bologna -- Italy}
-      {Data Scientist -- Senior Analyst $|$ Python, Azure, GitHub}{}
+      {AI Engineer/Data Engineer $|$ Python, Azure, Spark, LangGraph}{}
       \resumeItemListStart
-        \resumeItem{\textbf{Spark ETL Library Development}: Designed and developed a high-performance Spark-based ETL library to address data quality challenges on production banking tables with billions of rows. Engineered 14 parallel data quality checks and 17 transformation types, optimized for concurrent execution unlike Great Expectations and Databricks DQX. Deployed the library to production with Delta Lake integration, enabling reuse across multiple banking domains and significantly reducing pipeline development time.}
-        \resumeItem{\textbf{Team Leadership \& Project Management}: Led a team of 3--4 engineers, coordinating project delivery and prioritizing deliverables under tight deadlines. Maintained transparent client communication throughout all project phases, resulting in consistent on-schedule delivery and sustained client satisfaction.}
+        \resumeItem{\textbf{GenAI-Powered ETL Configuration Generation}: Designed and developed an AI-driven workflow using LangGraph to automatically generate ETL library configurations through generative AI. The solution streamlined the configuration process, reducing manual effort and improving consistency across data quality and transformation pipelines.}
+        \resumeItem{\textbf{Spark ETL Framework Development}: Architected and implemented a high-performance Spark-based ETL framework, called 'Veritas', to streamline data validation, transformation, and analysis processes across banking datasets. Successfully deployed across 23 production banking tables handling billions of rows, the framework was adopted by multiple banking domains, improving scalability, reusability, and reducing delivery times from weeks to days.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Data Reply}{December 2022 -- October 2025, Bologna -- Italy}
       {Cloud Engineer -- Consultant $|$ Python, Terraform, AWS, GCP, GitLab}{}
       \resumeItemListStart
-        \resumeItem{\textbf{Cloud Infrastructure \& ETL Pipelines}: Architected and deployed cloud infrastructure for approximately 10 insurance-domain projects on AWS using S3, ECS, Lambda, Step Functions, API Gateway, CloudWatch, and IAM, all provisioned via Terraform. Built end-to-end ETL pipelines for insurance data processing, delivering scalable and production-ready solutions.}
-        \resumeItem{\textbf{Document Data Extraction (Hyperautomation)}: Developed end-to-end microservices for automated data extraction from diverse document types including identity documents, receipts, medical records, and financial reports in CSV, PDF, and XLSX formats. Built reusable shared components such as OCR reconstruction and similarity services, adopted across multiple projects and handling millions of daily API calls.}
-        \resumeItem{\textbf{DevOps \& Industrialization}: Established robust CI/CD pipelines and automated release workflows using GitLab CI and Terraform, ensuring consistent and repeatable deployments across all projects. Also contributed to modifying existing GCP infrastructure using Cloud Functions and Workflows.}
-        \resumeItem{\textbf{Mentorship \& Knowledge Transfer}: Trained 4 colleagues on Terraform and AWS best practices. Mentored 4--5 engineers through hands-on onboarding covering AWS services, project architecture, and team workflows. Enabled mentees to achieve near-independence within 1--2 months, accelerating team productivity and project delivery capacity.}
+        \resumeItem{\textbf{Cloud Infrastructure \& ETL Pipelines}: Architected and deployed ETL cloud infrastructure for approximately 10 insurance-domain projects on AWS, all provisioned via Terraform.}
+        \resumeItem{\textbf{Document Data Extraction (Hyperautomation)}: Developed end-to-end microservices for automated data extraction from diverse document types including identity documents, receipts, medical records, and financial reports different formats. Built reusable components adopted across multiple projects and handling millions of daily API calls.}
+        \resumeItem{\textbf{Mentorship \& Knowledge Transfer}: Trained 4 colleagues through hands-on onboarding covering AWS services, project architecture, and team workflows. Enabled mentees to achieve near-independence within 1--2 months, accelerating team productivity and project delivery capacity.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -190,6 +189,13 @@
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{files-querier} $|$ LangGraph, Polars, DuckDB}{}
+          \resumeItemListStart
+              \resumeItem{Built an AI agent-based data analytics platform leveraging LangGraph to allow users to query heterogeneous CSV datasets through natural language, automatically generating and executing SQL queries.}
+              \resumeItem{Designed the underlying data processing architecture with Polars and DuckDB, implementing schema validation, data quality checks, and optimized analytical workflows for large-scale datasets.}
+              \resumeItem{Developed modular LangGraph workflows with state management, validation nodes, and recovery strategies to deliver reliable end-to-end autonomous data analysis capabilities.}
+          \resumeItemListEnd
         \resumeProjectHeading
           {\textbf{async-node} $|$ Python}{}
           \resumeItemListStart
